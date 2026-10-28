@@ -1,0 +1,211 @@
+:root {
+  --color-forest: #09251c;
+  --color-ochre: #a55704;
+  --color-sand: #f3d2af;
+  --color-cream: #f8eadc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 32px 16px;
+  background-color: var(--color-cream);
+  color: var(--color-forest);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app-container {
+  display: grid;
+  gap: 24px;
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+.sidebar,
+.main-content {
+  min-width: 0;
+  padding: clamp(18px, 3vw, 28px);
+  background: var(--color-sand);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(9, 37, 28, 0.12);
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+#project-list {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+  padding: 10px 12px;
+  overflow-wrap: anywhere;
+  border-radius: 6px;
+  color: var(--color-forest);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.project-item:hover {
+  background-color: var(--color-cream);
+}
+
+.project-item.active {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+}
+
+.project-delete-btn {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+.project-delete-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+#project-form,
+#todo-form {
+  display: grid;
+  gap: 12px;
+}
+
+#todo-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+#project-form input,
+#project-form button,
+#todo-form input,
+#todo-form select,
+#todo-form button {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--color-ochre);
+  border-radius: 6px;
+  font: inherit;
+}
+
+#project-form input:focus,
+#todo-form input:focus,
+#todo-form select:focus {
+  border-color: var(--color-forest);
+  outline: 2px solid var(--color-sand);
+}
+
+#project-form button,
+#todo-form button {
+  border: 0;
+  color: var(--color-cream);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#project-form button {
+  background-color: var(--color-ochre);
+}
+
+#project-form button:hover {
+  background-color: var(--color-forest);
+}
+
+#todo-form button {
+  background-color: var(--color-forest);
+}
+
+#todo-form button:hover {
+  background-color: var(--color-ochre);
+}
+
+.main-content h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  overflow-wrap: anywhere;
+}
+
+#todo-container {
+  display: grid;
+  gap: 12px;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content max-content max-content;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 16px 20px;
+  border-left: 6px solid var(--color-ochre);
+  border-radius: 8px;
+  background: var(--color-cream);
+  box-shadow: 0 1px 3px rgba(9, 37, 28, 0.1);
+}
+
+.todo-item span {
+  min-width: 0;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.todo-item label {
+  white-space: nowrap;
+}
+
+.todo-item select,
+.delete-btn {
+  padding: 8px 10px;
+  border: 1px solid var(--color-ochre);
+  border-radius: 6px;
+  background: var(--color-cream);
+  font: inherit;
+}
+
+.delete-btn {
+  color: var(--color-forest);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: var(--color-sand);
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .app-container {
+    gap: 16px;
+  }
+
+  #todo-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .todo-item {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 12px;
+  }
+
+  .todo-item span:first-child {
+    grid-column: 1 / -1;
+  }
+}

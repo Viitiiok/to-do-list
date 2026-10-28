@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>To Do List</title>
+</head>
+<body>
+   <div class="app-container">
+      <aside class="sidebar">
+         <h2>Projects</h2>
+         <ul id="project-list"></ul>
+
+         <form id="project-form">
+            <input type="text" id="project-input" placeholder="New project name..." required>
+            <button type="submit">Add Project</button>
+         </form>
+      </aside>
+
+      <main class="main-content">
+         <h1 id="active-project-title">Inbox</h1>
+         
+         <form id="todo-form">
+            <input type="text" id="title-input" placeholder="Task title..." required>
+            <input type="text" id="desc-input" placeholder="Description...">
+            <input type="date" id="date-input" required>
+            <select id="priority-input">
+               <option value="low">Low</option>
+               <option value="medium">Medium</option>
+               <option value="high">High</option>
+            </select>
+            <button type="submit">Add Todo</button>
+         </form>
+
+         <div id="todo-container"></div>
+      </main>
+   </div>
+</body>
+</html>
